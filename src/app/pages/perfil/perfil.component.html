@@ -1,0 +1,52 @@
+<ng-container *ngIf="detallesCuentaBancaria; else datos">
+  <h1>¡Hola, {{ detallesCuentaBancaria.usuario.nombre_completo }}!</h1>
+  <p>
+    Este es el resumen de tu cuenta
+    <b> # {{ detallesCuentaBancaria.numero_cuenta }}</b>
+  </p>
+  <h3>
+    Saldo Total: <b>{{ detallesCuentaBancaria.saldo_cuenta }}</b>
+  </h3>
+  <br />
+  <h3 class="centrar">Otros Servicios</h3>
+  <button
+    class="button-color-registro login-btn"
+    mat-button
+    routerLink="/retirar-saldo"
+  >
+    Reritar saldo
+  </button>
+  <hr />
+  <h3 class="centrar">Te puede interesar...</h3>
+  <button
+    class="button-color-crear login-btn"
+    mat-button
+    (click)="crearConsignacion()"
+  >
+    Realizar Consignación
+  </button>
+</ng-container>
+
+<ng-template #datos>
+  <h3 class="centrar">¡Es hora de abrir tu cuenta ahorros!</h3>
+  <form [formGroup]="formSaldo">
+    <mat-form-field appearance="outline">
+      <mat-label>Saldo Inicial</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="saldo_cuenta"
+        placeholder="Ingresa tu saldo inicial"
+      />
+    </mat-form-field>
+  </form>
+  <button
+    class="button-color-crear login-btn"
+    mat-button
+    (click)="crearCuentaBancaria()"
+  >
+    Crear cuenta ahorros
+  </button>
+</ng-template>
+
+<app-cerrar-sesion></app-cerrar-sesion>

@@ -1,0 +1,24 @@
+<div routerLink="/perfil" style="cursor: pointer">
+  <mat-icon matPrefix>arrow_back</mat-icon>
+  Atrás
+</div>
+<br />
+<h2>Retiro de saldo</h2>
+<form [formGroup]="formRetiro">
+  <mat-form-field appearance="outline">
+    <mat-label>Saldo a Retirar</mat-label>
+    <input
+      type="number"
+      matInput
+      formControlName="saldo"
+      placeholder="Ingresa Saldo a retirar"
+    />
+  </mat-form-field>
+</form>
+<button
+  class="button-color-registro login-btn"
+  mat-button
+  (click)="retirarSaldo()"
+>
+  Realizar Retiro de saldo
+</button>

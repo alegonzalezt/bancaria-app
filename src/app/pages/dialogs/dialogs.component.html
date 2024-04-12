@@ -1,0 +1,29 @@
+<h2>Pasarela de Consignación</h2>
+<form [formGroup]="formConsignar">
+  <mat-form-field appearance="outline">
+    <mat-label>Numero de Cuenta Ahorros</mat-label>
+    <input
+      type="number"
+      matInput
+      formControlName="numero_cuenta"
+      placeholder="Ingrese el numero de cuenta"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Saldo a consignar</mat-label>
+    <input
+      type="number"
+      matInput
+      formControlName="saldo"
+      placeholder="Ingresa Saldo a consignar"
+    />
+  </mat-form-field>
+</form>
+
+<button
+  class="button-color-registro login-btn"
+  mat-button
+  (click)="enviarSaldo()"
+>
+  Finalizar Consignación
+</button>

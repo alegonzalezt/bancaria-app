@@ -1,0 +1,57 @@
+<form class="form-container" [formGroup]="formLogin">
+  <mat-form-field appearance="outline">
+    <mat-label>Usuario</mat-label>
+    <input
+      matInput
+      formControlName="username"
+      placeholder="Ingresa tu usuario"
+    />
+    <mat-icon matPrefix>person</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contraseña</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="Ingresa tu clave"
+    />
+    <mat-icon matPrefix>lock</mat-icon>
+  </mat-form-field>
+</form>
+
+<div class="btns-container">
+  <button
+    class="button-color-crear login-btn"
+    mat-button
+    [disabled]="loading || formLogin.invalid"
+    (click)="iniciarSesion()"
+  >
+    <div *ngIf="!loading">Iniciar sesión</div>
+    <div
+      class="d-flex justify-content-center align-items-center"
+      *ngIf="loading"
+    >
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </button>
+  <a
+    routerLink="/crear-usuario"
+    class="button-color-registro login-btn"
+    mat-button
+  >
+    Registrarse
+  </a>
+
+  <div>
+    <br />
+    <h3 class="centrar">Otros Servicios</h3>
+    <a
+      (click)="crearConsignacion()"
+      class="button-color-registro login-btn"
+      mat-button
+    >
+      Realizar Consignación
+    </a>
+  </div>
+</div>

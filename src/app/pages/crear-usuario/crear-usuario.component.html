@@ -1,0 +1,79 @@
+<section class="my-4 registro-container">
+  <div routerLink="/login" style="cursor: pointer">
+    <mat-icon matPrefix>arrow_back</mat-icon>
+  </div>
+  <h1 matDialogTitle class="d-flex justify-content-center">Crear Cuenta</h1>
+  <div>
+    <form
+      class="d-flex justify-content-center flex-column"
+      [formGroup]="formCrear"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input
+          matInput
+          formControlName="first_name"
+          placeholder="Ingresa tu nombre"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input
+          matInput
+          formControlName="last_name"
+          placeholder="Ingresa tu apellido"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          formControlName="username"
+          placeholder="Ingresa su username"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="Ingresa tu correo"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label># Identificación</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="identificacion"
+          onkeypress="return /[0-9]/i.test(event.key)"
+          placeholder="Ingresa tu identificacion"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Ingresa tu clave"
+          pattern=".{8,}"
+        />
+      </mat-form-field>
+    </form>
+    <div class="d-flex justify-content-center mt-3">
+      <button
+        class="button-color-crear login-btn"
+        mat-button
+        [disabled]="formCrear.invalid"
+        (click)="crearCuenta()"
+      >
+        <div>Crear cuenta</div>
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="fa fa-spinner fa-spin fa-2x"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
